@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'request',
     'rating_and_review',
     'favourite',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
