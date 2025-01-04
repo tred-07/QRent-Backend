@@ -9,9 +9,12 @@ class AdvertiseView(viewsets.ModelViewSet):
     queryset = AdvertiseModel.objects.all()
     serializer_class = AdvertiseSerializer
     def perform_create(self,serializer):
-        AdvertiseModel=AdvertiseModel.objects.get()
-        AdvertiseModel.save()
-        serializer.save(AdvertiseModel=AdvertiseModel,user=user)
+        serializer.save(user=self.request.user)
+
+
+class AdvertiseListView(generics.ListAPIView):
+    queryset = AdvertiseModel.objects.all()
+    serializer_class = AdvertiseSerializer
 
 
 
