@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'advertise',
     'rent_requests',
     'reviews_and_ratings',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
