@@ -24,7 +24,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),  # Add this line
     path('advertise/', include('advertise.urls')),
     path('my-favourite/', include('favourite.urls')),
-    path('review/', include('review.urls'))
+    path('review/', include('rating_and_review.urls'))
 ]
 
 urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
