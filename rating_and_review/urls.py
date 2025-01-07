@@ -3,7 +3,7 @@ from rest_framework import routers
 from .views import RatingView
 router = routers.DefaultRouter()
 
-router.register("create-review",RatingView)
+router.register("create",RatingView)
 
 urlpatterns = [
     path("", include(router.urls)),

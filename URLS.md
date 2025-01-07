@@ -1,6 +1,6 @@
-advertise/
-my-favourite/
-review/
+advertise/ (create,list)
+favourite/ (create)
+review/ (create)
 
 
 

@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),  # Add this line
     path('advertise/', include('advertise.urls')),
-    path('my-favourite/', include('favourite.urls')),
+    path('favourite/', include('favourite.urls')),
     path('review/', include('rating_and_review.urls'))
 ]
 
