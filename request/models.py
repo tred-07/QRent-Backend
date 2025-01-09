@@ -5,7 +5,7 @@ from advertise.models import AdvertiseModel
 
 class RequestModel(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    advertise= models.ForeignKey(AdvertiseModel, on_delete=models.CASCADE)
+    advertise= models.ForeignKey(AdvertiseModel, on_delete=models.CASCADE,related_name="request")
     message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     is_accepted = models.BooleanField(default=False)
