@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rating_and_review',
     'favourite',
     'rest_framework',
+    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [
