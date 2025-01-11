@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect,HttpResponse
-from rest_framework import viewsets
+from rest_framework import viewsets,views
 from .serializers import AccountModelSerializer,RegistrationSerializer,LoginSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -11,16 +11,19 @@ from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string 
-from rest_framework.generics import GenericAPIView
+from rest_framework import generics
 
 from rest_framework.permissions import IsAuthenticated
 # permission_classes = [IsAuthenticated]
 # Create your views here.
 
-class UserViewSet(viewsets.ModelViewSet):
+class UserViewSet(generics.ListAPIView):
     permission_classes = [IsAuthenticated]
     queryset = User.objects.all()
     serializer_class = AccountModelSerializer
+
+    def get_queryset(self):
+        return super().get_queryset().filter(pk=self.request.user.pk)
     
 
 
@@ -65,7 +68,7 @@ class UserLoginView(APIView):
         return Response(serializer.errors)
 
 
-class UserLogOutView(GenericAPIView):
+class UserLogOutView(generics.GenericAPIView):
     permission_classes = [IsAuthenticated]
     def get(self,req):
         # if req.is_authenticated():

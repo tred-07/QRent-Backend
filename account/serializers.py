@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 from advertise.serializers import AdvertiseSerializer
 from favourite.serializers import FavouriteSerializer
 from rating_and_review.serializers import RatingAndReviewSerializer
@@ -9,7 +9,7 @@ from request.serializers import RequestSerializer
 
 
 class AccountModelSerializer(serializers.ModelSerializer):
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAuthenticated]
     advertise=AdvertiseSerializer(many=True)
     feedback=FavouriteSerializer(many= True)
     favourite=FavouriteSerializer(many=True)
