@@ -6,3 +6,4 @@ from advertise.models import AdvertiseModel
 class FavouriteModel(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     advertise = models.ForeignKey(AdvertiseModel, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)

@@ -7,7 +7,7 @@ router = routers.DefaultRouter()
 router.register('create',AdvertiseView)
 
 urlpatterns = [
-    path('', include(router.urls)),
-    path('list/',AdvertiseListView.as_view())
+    path('advertise/', include(router.urls)),
+    path('',AdvertiseListView.as_view())
     # path('create/', AdvertiseView.as_view()),
 ]
