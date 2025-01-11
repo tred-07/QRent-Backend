@@ -6,7 +6,7 @@ from advertise.models import AdvertiseModel
 # Create your views here.
 
 
-class RequestView(generics.ListCreateAPIView):
+class RequestView(generics.ListAPIView):
     queryset = RequestModel.objects.all()
     serializer_class = RequestSerializer
 

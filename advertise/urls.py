@@ -8,6 +8,6 @@ router.register('create',AdvertiseView)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('list',AdvertiseListView.as_view())
+    path('list/',AdvertiseListView.as_view())
     # path('create/', AdvertiseView.as_view()),
 ]
