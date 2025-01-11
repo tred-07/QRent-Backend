@@ -25,7 +25,7 @@ urlpatterns = [
     path('user/',include('account.urls')),
     path('', include('advertise.urls')),
     path('favourite/', include('favourite.urls')),
-    path('review/', include('rating_and_review.urls')),
+    path('feedback/', include('rating_and_review.urls')),
     path('request/', include('request.urls')),
 ]
 

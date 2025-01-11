@@ -1,10 +1,9 @@
 from django.urls import path,include
 from rest_framework import routers
-from .views import RatingView
+from .views import CreateRating,RatingAndReviewList
 router = routers.DefaultRouter()
 
-router.register("create",RatingView)
-
 urlpatterns = [
-    path("", include(router.urls)),
+    path('create/<int:pk>/',CreateRating.as_view(), name='create_rating'),
+    path('',RatingAndReviewList.as_view(), name='list')
 ]
