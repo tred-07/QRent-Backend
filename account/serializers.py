@@ -1,14 +1,22 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import AccountModel
+
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from advertise.serializers import AdvertiseSerializer
+from favourite.serializers import FavouriteSerializer
+from rating_and_review.serializers import RatingAndReviewSerializer
+from request.serializers import RequestSerializer
+
 
 class AccountModelSerializer(serializers.ModelSerializer):
     permission_classes = [IsAuthenticatedOrReadOnly]
-    user=serializers.StringRelatedField(many=False)
+    advertise=AdvertiseSerializer(many=True)
+    feedback=FavouriteSerializer(many= True)
+    favourite=FavouriteSerializer(many=True)
+    request=RequestSerializer(many=True)
     class Meta:
-        model=AccountModel
-        fields="__all__"
+        model=User
+        fields=['username', 'first_name','last_name', 'email','advertise','feedback','favourite','request']
 
 
 class RegistrationSerializer(serializers.ModelSerializer):

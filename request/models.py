@@ -4,7 +4,7 @@ from advertise.models import AdvertiseModel
 # Create your models here.
 
 class RequestModel(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE,related_name="request")
     advertise= models.ForeignKey(AdvertiseModel, on_delete=models.CASCADE,related_name="request")
     message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)

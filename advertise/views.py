@@ -20,6 +20,9 @@ class AdvertiseListView(generics.ListAPIView):
     filterset_fields=['user__username','title','description','price',]
     ordering_fields=['price','created_at','updated_at']
 
+    def get_queryset(self):
+        return super().get_queryset().filter(user=self.request.user)
+
 
 
     

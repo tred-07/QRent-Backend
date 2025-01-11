@@ -1,6 +1,5 @@
 from django.shortcuts import render,redirect,HttpResponse
 from rest_framework import viewsets
-from .models import AccountModel
 from .serializers import AccountModelSerializer,RegistrationSerializer,LoginSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -20,8 +19,9 @@ from rest_framework.permissions import IsAuthenticated
 
 class UserViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
-    queryset = AccountModel.objects.all()
+    queryset = User.objects.all()
     serializer_class = AccountModelSerializer
+    
 
 
 class UserRegistration(APIView): # potato vs round-potato
