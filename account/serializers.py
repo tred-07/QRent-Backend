@@ -44,6 +44,6 @@ class RegistrationSerializer(serializers.ModelSerializer):
         return account
     
 
-class LoginSerializer(serializers.Serializer):
+class LoginSerializer(serializers.ModelSerializer):
     username=serializers.CharField(required=True)
     password=serializers.CharField(required=True)

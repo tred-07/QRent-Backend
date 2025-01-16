@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-!8!xa%la8e7a3it&tjwqw$306&i5pb-u5$hafz_pg$i+^7mo7b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", ".vercel.app"]
+ALLOWED_HOSTS = ["127.0.0.1", "*",".vercel.app"]
 CSRF_TRUSTED_ORIGINS = ["https://127.0.0.1",'https://*.127.0.0.1']
 
 # Application definition
@@ -151,7 +151,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOWED_ORIGINS = [
-    '*',
     'https://sdp-final-frontend.vercel.app', # Replace with your frontend URL
 ]
 CORS_ALLOW_METHODS = [
