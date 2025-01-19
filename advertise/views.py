@@ -22,6 +22,15 @@ class AdvertiseListView(generics.ListAPIView):
 
     def get_queryset(self):
         return super().get_queryset().filter(user=self.request.user)
+    
+
+class AllAdvertise(viewsets.ListViewSet):
+    queryset = AdvertiseModel.objects.all()
+    serializer_class = AdvertiseSerializer
+    filter_backends=[DjangoFilterBackend,filters.SearchFilter,filters.OrderingFilter]
+    filterset_fields=['user__username','title','description','price',]
+    ordering_fields=['price','created_at','updated_at']
+        
 
 
 
