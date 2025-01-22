@@ -89,23 +89,23 @@ WSGI_APPLICATION = 'main_project.wsgi.app'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres', # changename from superbase
-        'USER':'postgres.qzoysgbtvofcwyietijs', # changename from superbase
-        'PASSWORD':env('PASS'), # changename from superbase
-        'HOST':env('HOST'), # changename from superbase
-        'PORT':env('PORT') # changename from superbase
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'postgres', # changename from superbase
+#         'USER':'postgres.qzoysgbtvofcwyietijs', # changename from superbase
+#         'PASSWORD':env('PASS'), # changename from superbase
+#         'HOST':env('HOST'), # changename from superbase
+#         'PORT':env('PORT') # changename from superbase
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
