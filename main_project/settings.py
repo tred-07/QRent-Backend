@@ -51,6 +51,13 @@ INSTALLED_APPS = [
     'corsheaders',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+       'rest_framework.authentication.TokenAuthentication', # For Basic Authentication use 'rest_framework.authentication.BasicAuthentication',
+       'rest_framework.authentication.SessionAuthentication',
+   ]
+}
+
 MIDDLEWARE = [
     
     'django.middleware.security.SecurityMiddleware',
@@ -167,3 +174,4 @@ CORS_ALLOW_HEADERS = [
     'content-type',
     'authorization',
 ]
+
