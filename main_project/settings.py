@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-!8!xa%la8e7a3it&tjwqw$306&i5pb-u5$hafz_pg$i+^7mo7b
 DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1", "*",".vercel.app",'https://qrent.vercel.app']
-CSRF_TRUSTED_ORIGINS = ["https://127.0.0.1",'https://*.127.0.0.1','https://qrent.vercel.app']
+CSRF_TRUSTED_ORIGINS = ["https://127.0.0.1",'https://*.127.0.0.1','https://qrent.vercel.app','https://qrent-backend.onrender.com']
 
 # Application definition
 
