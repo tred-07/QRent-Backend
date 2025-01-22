@@ -15,6 +15,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 import environ
+import os
 env=environ.Env()
 environ.Env.read_env()
 
@@ -44,7 +45,7 @@ INSTALLED_APPS = [
     'advertise',
     'request',
     'rating_and_review',
-    'favourite',
+    'favourite',    
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
@@ -143,9 +144,9 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT=BASE_DIR/'staticfiles'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+# MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'mediafiles')
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
