@@ -38,13 +38,13 @@ class UserRegistration(APIView): # potato vs round-potato
             print("token ", token)
             uid=urlsafe_base64_encode(force_bytes(user.pk))
             print("uid",uid)
-            # confirm_link=f"https://sdp-final-backend.vercel.app/user/active/{uid}/{token}" 
-            # confirm_link=f"http://127.0.0.1:8000/user/active/{uid}/{token}"
-            # email_subject="Confirm your account"
-            # email_body=render_to_string('mail.html',{'confirm_link':confirm_link})
-            # email=EmailMultiAlternatives(email_subject,"",to=[user.email])
-            # email.attach_alternative(email_body,"text/html")
-            # email.send()
+            confirm_link=f"https://qrent-backend.onrender.com/user/activate/{uid}/{token}" 
+            # confirm_link=f"http://127.0.0.1:8000/user/activate/{uid}/{token}"
+            email_subject="Confirm your account"
+            email_body=render_to_string('mail.html',{'confirm_link':confirm_link})
+            email=EmailMultiAlternatives(email_subject,"",to=[user.email])
+            email.attach_alternative(email_body,"text/html")
+            email.send()
             return Response("Done 1")
         return Response(serializer.errors)
     
@@ -76,7 +76,7 @@ class UserLogOutView(generics.GenericAPIView):
         logout(req)
         return redirect('login')
     
-'''   
+
 class Activate(generic.View):
     def get(self,request,uid,token):
         try:
@@ -94,7 +94,7 @@ class Activate(generic.View):
     
 
 
-
+'''
 {
 "username":"user2",
 "password":"123456abcdef"

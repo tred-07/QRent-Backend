@@ -2,7 +2,7 @@ from django.urls import path,include
 
 
 from rest_framework import routers
-from .views import UserViewSet, UserRegistration, UserLoginView, UserLogOutView
+from .views import UserViewSet, UserRegistration, UserLoginView, UserLogOutView,Activate
 
 router = routers.DefaultRouter()
 
@@ -13,4 +13,5 @@ urlpatterns = [
     path('register/', UserRegistration.as_view()),
     path('login/', UserLoginView.as_view()),
     path('logout/', UserLogOutView.as_view()),
+    path('activate/<uid>/<token>/',Activate.as_view(),name='activate')
 ]
