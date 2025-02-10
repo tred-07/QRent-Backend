@@ -45,7 +45,6 @@ class UserRegistration(APIView): # potato vs round-potato
             email=EmailMultiAlternatives(email_subject,"",to=[user.email])
             email.attach_alternative(email_body,"text/html")
             email.send()
-            user.is_active=false
             return Response("Done 1")
         return Response(serializer.errors)
     
