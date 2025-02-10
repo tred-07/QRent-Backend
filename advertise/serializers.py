@@ -8,6 +8,6 @@ class AdvertiseSerializer(serializers.ModelSerializer):
     review=RatingAndReviewSerializer(read_only=True,many=True)
     class Meta:
         model = AdvertiseModel
-        fields = '__all__'
-        exclude='is_approved'
+        # fields = '__all__'
+        exclude=('is_approved')
         
