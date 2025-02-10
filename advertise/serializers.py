@@ -6,8 +6,8 @@ class AdvertiseSerializer(serializers.ModelSerializer):
     user=serializers.StringRelatedField(read_only=True)
     request=RequestSerializer(read_only=True,many=True)
     review=RatingAndReviewSerializer(read_only=True,many=True)
+    is_approved=serializers.BooleanField()
     class Meta:
         model = AdvertiseModel
-        # fields = '__all__'
-        exclude=('is_approved',)
+        fields = '__all__'
         
