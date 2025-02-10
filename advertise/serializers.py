@@ -9,4 +9,5 @@ class AdvertiseSerializer(serializers.ModelSerializer):
     class Meta:
         model = AdvertiseModel
         fields = '__all__'
+        exclude='is_approved'
         
