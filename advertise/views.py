@@ -36,9 +36,18 @@ class AllAdvertise(generics.ListAPIView):
 class UpdateAdvertise(generics.UpdateAPIView):
     serializer_class=AdvertiseSerializer
     permission_classes=[permissions.IsAuthenticatedOrReadOnly]
+    def get_queryset(self):
+        return Book.objects.filter(user=self.request.user)
+
+class AdDetailView(generics.RetrieveAPIView):
+    permission_classes=[permissions.IsAuthenticatedOrReadOnly]
+    queryset = AdvertiseModel.objects.all()
+    serializer_class = AdvertiseSerializer
 
     def get_queryset(self):
-        return AdvertiseModel.objects.filter(user=self.request.user)
+        return super().get_queryset().filter(user=self.request.user)
+
+
 
 
 
