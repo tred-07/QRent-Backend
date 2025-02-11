@@ -8,6 +8,7 @@ class AdvertiseSerializer(serializers.ModelSerializer):
     request=RequestSerializer(read_only=True,many=True)
     review=RatingAndReviewSerializer(read_only=True,many=True)
     is_approved=serializers.BooleanField(read_only=True)
+    name=serializers.StringRelatedField(read_only=True,many=True)
     class Meta:
         model = AdvertiseModel
         fields = '__all__'

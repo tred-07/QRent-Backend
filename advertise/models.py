@@ -12,5 +12,6 @@ class AdvertiseModel(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     is_approved = models.BooleanField(default=False)
     is_accepted = models.BooleanField(default=False)
+    name=models.CharField(max_length=20,blank=True)
     def __str__(self):
         return f"{self.title} {self.description}"
