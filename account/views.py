@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect,HttpResponse
-from rest_framework import viewsets,views
+from rest_framework import viewsets,views,status
 from .serializers import AccountModelSerializer,RegistrationSerializer,LoginSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -12,7 +12,7 @@ from rest_framework.authtoken.models import Token
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string 
 from rest_framework import generics
-
+from .models import AccountModel
 from rest_framework.permissions import IsAuthenticated
 # permission_classes = [IsAuthenticated]
 # Create your views here.
@@ -64,7 +64,7 @@ class UserLoginView(APIView):
                 login(request,user)
                 return Response({'token':token.key,'user_id':user.id})
                 print("Ok")
-            return Response({'error' : "Invalid Credential"})
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         return Response(serializer.errors)
 
 
@@ -93,6 +93,9 @@ class Activate(generic.View):
         return HttpResponse("You are not authenticated user.")
     
 
+class AccountViewSet(viewsets.ModelViewSet):
+    queryset = AccountModel.objects.all()
+    serializer_class=AccountModelSerializer
 
 '''
 {
