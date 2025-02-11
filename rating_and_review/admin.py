@@ -9,4 +9,4 @@ class FeedbackAdmin(admin.ModelAdmin):
     def last_name(self,obj):
         return obj.user.last_name
 
-admin.site.register(RatingAndReviewModel,FeedbackAdmin)
+admin.site.register(RatingAndReviewModel)
