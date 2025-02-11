@@ -16,7 +16,7 @@ class AccountModelSerializer(serializers.ModelSerializer):
     favourite=FavouriteSerializer(many=True)
     request=RequestSerializer(many=True)
     class Meta:
-        model=AccountModel
+        model=User
         fields='__all__'
 
 
