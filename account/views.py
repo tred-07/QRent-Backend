@@ -64,7 +64,7 @@ class UserLoginView(APIView):
                 login(request,user)
                 return Response({'token':token.key,'user_id':user.id})
                 print("Ok")
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            return Response(serializer.errors, status=status.HTTP_900_BAD_REQUEST)
         return Response(serializer.errors)
 
 
