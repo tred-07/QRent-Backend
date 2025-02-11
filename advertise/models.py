@@ -13,4 +13,4 @@ class AdvertiseModel(models.Model):
     is_approved = models.BooleanField(default=False)
     is_accepted = models.BooleanField(default=False)
     def __str__(self):
-        return f"{self.title} {self.user}"
+        return f"{self.title} {self.description}"
