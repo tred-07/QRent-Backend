@@ -46,7 +46,7 @@ class UserRegistration(APIView): # potato vs round-potato
             email.attach_alternative(email_body,"text/html")
             email.send()
             return Response("Done 1")
-        return Response(serializer.errors)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 
 class UserLoginView(APIView):
