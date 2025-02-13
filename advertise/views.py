@@ -37,7 +37,7 @@ class UpdateAdvertise(generics.UpdateAPIView):
     serializer_class=AdvertiseSerializer
     permission_classes=[permissions.IsAuthenticatedOrReadOnly]
     def get_queryset(self):
-        return Book.objects.filter(user=self.request.user)
+        return AdvertiseModel.objects.filter(user=self.request.user,name=self.request.user.first_name+" "+self.request.user.last_name)
 
 class AdDetailView(generics.RetrieveAPIView):
     permission_classes=[permissions.IsAuthenticatedOrReadOnly]
@@ -48,6 +48,17 @@ class AdDetailView(generics.RetrieveAPIView):
         return super().get_queryset().filter(user=self.request.user)
 
 
+class EditAd(views.APIView):
+    permission_classes=[permissions.IsAuthenticated]
+    def put(self,request,pk): # u = update operation
+        advertise=AdvertiseModel.objects.get(pk=pk)
+        serializer=AdvertiseSerializer(advertise,data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return response.Response(serializer.data)
+            # return redirect('movie_list')
+        else:
+            return response.Response(serializer.errors)
 
 
 
