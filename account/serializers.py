@@ -17,7 +17,7 @@ class AccountModelSerializer(serializers.ModelSerializer):
     request=RequestSerializer(many=True)
     class Meta:
         model=User
-        fields='__all__'
+        exclude=('password','is_superuser','is_staff','is_active','user_permissions','groups')
 
 
 class RegistrationSerializer(serializers.ModelSerializer):

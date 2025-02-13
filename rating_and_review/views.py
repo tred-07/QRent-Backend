@@ -25,8 +25,8 @@ class CreateRating(generics.CreateAPIView):
         pk=self.kwargs.get('pk')
         watchlist=AdvertiseModel.objects.get(pk=pk)
         review_user=self.request.user
-        review_queryset=RatingAndReviewModel.objects.filter(advertise=watchlist,user=review_user)
+        review_queryset=RatingAndReviewModel.objects.filter(advertise=watchlist,user=review_user,name=review_user.first_name+review_user.last_name)
         if review_queryset.exists():
             raise serializers.ValidationError("You have already reviewed.")
         watchlist.save()
-        serializer.save(advertise=watchlist,user=review_user)
+        serializer.save(advertise=watchlist,user=review_user,name=review_user.first_name+" "+review_user.last_name)

@@ -17,6 +17,6 @@ class RatingAndReviewModel(models.Model):
     star = models.CharField(max_length=10, choices=STAR_CHOICES)
     review = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
-    
+    name=models.CharField(blank=True,max_length=20)
     def __str__(self):
         return f"{self.user.first_name} {self.user.last_name} {self.advertise} {self.star}"

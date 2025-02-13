@@ -9,6 +9,6 @@ class RequestModel(models.Model):
     message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     is_accepted = models.BooleanField(default=False)
-
+    name=models.CharField(blank=True,max_length=20)
     def __str__(self):
         return f"{self.user} {self.advertise} {self.is_accepted}"
