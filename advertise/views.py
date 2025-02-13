@@ -61,5 +61,11 @@ class EditAd(views.APIView):
             return response.Response(serializer.errors)
 
 
+class AdDetailViewAll(generics.RetrieveAPIView):
+    permission_classes=[permissions.IsAuthenticatedOrReadOnly]
+    queryset = AdvertiseModel.objects.all()
+    serializer_class = AdvertiseSerializer          
+
+
 
     
