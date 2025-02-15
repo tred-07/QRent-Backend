@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .serializers import RequestSerializer
 from .models import RequestModel
-from rest_framework import generics,viewsets,serializers,permissions
+from rest_framework import generics,viewsets,serializers,permissions,views
 from advertise.models import AdvertiseModel
 # Create your views here.
 
@@ -27,3 +27,16 @@ class CreateRequest(generics.CreateAPIView):
             raise serializers.ValidationError("You have already requested.")
         watchlist.save()
         serializer.save(advertise=watchlist,user=review_user,name=review_user.first_name+" "+review_user.last_name)
+
+
+
+class EditRequest(views.APIView):
+    permission_classes=[permissions.IsAuthenticated]
+    def put(self,request,pk): # u = update operation
+        request1=RequestModel.objects.get(pk=pk)
+        serializer=RequestSerializer(request1,data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return response.Response(serializer.data)
+        else:
+            return response.Response(serializer.errors)
