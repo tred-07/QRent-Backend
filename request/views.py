@@ -40,3 +40,9 @@ class EditRequest(views.APIView):
             return response.Response(serializer.data)
         else:
             return response.Response(serializer.errors)
+
+
+class ReqDetailView(generics.RetrieveAPIView):
+    permission_classes=[permissions.IsAuthenticatedOrReadOnly]
+    queryset = RequestModel.objects.all()
+    serializer_class = RequestSerializer            
