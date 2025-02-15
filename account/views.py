@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect,HttpResponse
 from rest_framework import viewsets,views,status
-from .serializers import AccountModelSerializer,RegistrationSerializer,LoginSerializer
+from .serializers import AccountModelSerializer,RegistrationSerializer,LoginSerializer,UserSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.contrib.auth import tokens,authenticate,login,logout
@@ -103,3 +103,15 @@ class AccountViewSet(viewsets.ModelViewSet):
 "password":"123456abcdef"
 }
 '''
+
+
+class EditProfile(views.APIView):
+    permission_classes=[IsAuthenticated]
+    def put(self,request,pk): # u = update operation
+        user1=User.objects.get(pk=pk)
+        serializer=UserSerializer(user1,data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors)

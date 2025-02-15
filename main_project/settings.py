@@ -103,16 +103,6 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'postgres', # changename from superbase
-#         'USER':'postgres.qzoysgbtvofcwyietijs', # changename from superbase
-#         'PASSWORD':env('PASS'), # changename from superbase
-#         'HOST':env('HOST'), # changename from superbase
-#         'PORT':env('PORT') # changename from superbase
-#     }
-# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators

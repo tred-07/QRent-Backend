@@ -1,7 +1,7 @@
 from django.urls import path,include
 
 from rest_framework import routers
-from .views import AdvertiseView,AdvertiseListView,AllAdvertise,UpdateAdvertise,AdDetailView,EditAd,AdDetailViewAll
+from .views import AdvertiseView,AdvertiseListView,AllAdvertise,AdDetailView,EditAd,AdDetailViewAll
 
 router = routers.DefaultRouter()
 router.register('create',AdvertiseView)

@@ -2,7 +2,7 @@ from django.urls import path,include
 
 
 from rest_framework import routers
-from .views import UserViewSet, UserRegistration, UserLoginView, UserLogOutView,Activate,AccountViewSet
+from .views import UserViewSet, UserRegistration, UserLoginView, UserLogOutView,Activate,AccountViewSet,EditProfile
 
 router = routers.DefaultRouter()
 router.register('list',AccountViewSet)
@@ -13,5 +13,6 @@ urlpatterns = [
     path('register/', UserRegistration.as_view()),
     path('login/', UserLoginView.as_view()),
     path('logout/', UserLogOutView.as_view()),
-    path('activate/<uid>/<token>/',Activate.as_view(),name='activate')
+    path('activate/<uid>/<token>/',Activate.as_view(),name='activate'),
+    path('edit/<int:pk>',EditProfile.as_view())
 ]

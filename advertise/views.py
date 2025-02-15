@@ -31,14 +31,6 @@ class AllAdvertise(generics.ListAPIView):
     filterset_fields=['user__username','title','description','price',]
     ordering_fields=['price','created_at','updated_at']
 
-
-
-class UpdateAdvertise(generics.UpdateAPIView):
-    serializer_class=AdvertiseSerializer
-    permission_classes=[permissions.IsAuthenticatedOrReadOnly]
-    def get_queryset(self):
-        return AdvertiseModel.objects.filter(user=self.request.user,name=self.request.user.first_name+" "+self.request.user.last_name)
-
 class AdDetailView(generics.RetrieveAPIView):
     permission_classes=[permissions.IsAuthenticatedOrReadOnly]
     queryset = AdvertiseModel.objects.all()
@@ -56,7 +48,6 @@ class EditAd(views.APIView):
         if serializer.is_valid():
             serializer.save()
             return response.Response(serializer.data)
-            # return redirect('movie_list')
         else:
             return response.Response(serializer.errors)
 
