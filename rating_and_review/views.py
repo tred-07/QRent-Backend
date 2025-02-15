@@ -14,6 +14,11 @@ class RatingAndReviewList(generics.RetrieveAPIView):
         serializer.save(user=self.request.user)
 
 
+class AllRating(generics.ListAPIView):
+    queryset=RatingAndReviewModel.objects.all()
+    serializer_class=RatingAndReviewSerializer
+
+
 class CreateRating(generics.CreateAPIView):
     permission_classes=[permissions.IsAuthenticated]
     serializer_class=RatingAndReviewSerializer
