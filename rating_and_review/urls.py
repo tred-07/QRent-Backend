@@ -5,5 +5,5 @@ router = routers.DefaultRouter()
 
 urlpatterns = [
     path('create/<int:pk>/',CreateRating.as_view(), name='create_rating'),
-    path('',RatingAndReviewList.as_view(), name='list')
+    path('<int:pk>/',RatingAndReviewList.as_view())
 ]

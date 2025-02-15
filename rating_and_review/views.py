@@ -6,7 +6,7 @@ from advertise.models import AdvertiseModel
 from .permissions import AdminOrReadOnly
 # Create your views here.
 
-class RatingAndReviewList(generics.ListAPIView):
+class RatingAndReviewList(generics.RetrieveAPIView):
     queryset = RatingAndReviewModel.objects.all()
     serializer_class = RatingAndReviewSerializer
     permission_classes = [AdminOrReadOnly]
