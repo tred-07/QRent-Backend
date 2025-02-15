@@ -15,4 +15,4 @@ class AdvertiseModel(models.Model):
     name=models.CharField(max_length=100,blank=True)
     location=models.CharField(max_length=100,blank=True)
     def __str__(self):
-        return f"{self.title} {self.description} {self.user.first_name}"
+        return f"Advertise title: {self.title}, Posted By: {self.name} "
